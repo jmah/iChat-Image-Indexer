@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AddressBook/AddressBook.h>
 
 @class IIParticipant;
 
@@ -24,5 +25,6 @@
 @interface IIParticipant : NSObject <NSCoding /* Decoding only */>
 
 @property (readonly, copy) NSString *accountName;
+@property (readonly, retain) ABPerson *matchingPerson;
 
 @end

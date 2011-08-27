@@ -40,6 +40,7 @@
 @implementation IIParticipant
 
 @synthesize accountName = _accountName;
+@synthesize matchingPerson = _lazyPerson;
 
 - (id)initWithCoder:(NSCoder *)decoder;
 {
@@ -51,5 +52,18 @@
 
 - (void)encodeWithCoder:(NSCoder *)encoder;
 { NSAssert1(NO, @"%@ does not allow encoding.", [self class]); }
+
+- (ABPerson *)matchingPerson;
+{
+    if (!_lazyPerson) {
+        ABSearchElement *imNick = [ABPerson searchElementForProperty:kABInstantMessageProperty label:nil key:kABInstantMessageUsernameKey value:self.accountName comparison:kABEqualCaseInsensitive];
+        ABRecord *record = [[[ABAddressBook sharedAddressBook] recordsMatchingSearchElement:imNick] lastObject];
+        if ([record isKindOfClass:[ABPerson class]])
+            _lazyPerson = (id)record;
+        else
+            _lazyPerson = (id)[NSNull null];
+    }
+    return ((id)_lazyPerson != [NSNull null]) ? _lazyPerson : nil;
+}
 
 @end
