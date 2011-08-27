@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28E8B6C3140887220063BA3B /* IIInstantMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E8B6C2140887220063BA3B /* IIInstantMessage.m */; };
+		28E8B6C61408A4880063BA3B /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E8B6C51408A4880063BA3B /* AddressBook.framework */; };
 		28F6DBAB14087CEC0014923E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28F6DBAA14087CEC0014923E /* Foundation.framework */; };
 		28F6DBAE14087CEC0014923E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F6DBAD14087CEC0014923E /* main.m */; };
 		28F6DBBA14087D560014923E /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28F6DBB814087D480014923E /* AppKit.framework */; };
@@ -25,6 +27,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		28E8B6C1140887220063BA3B /* IIInstantMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IIInstantMessage.h; sourceTree = "<group>"; };
+		28E8B6C2140887220063BA3B /* IIInstantMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IIInstantMessage.m; sourceTree = "<group>"; };
+		28E8B6C51408A4880063BA3B /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		28F6DBA614087CEC0014923E /* iChat Image Indexer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "iChat Image Indexer"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28F6DBAA14087CEC0014923E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		28F6DBAD14087CEC0014923E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -36,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28E8B6C61408A4880063BA3B /* AddressBook.framework in Frameworks */,
 				28F6DBBA14087D560014923E /* AppKit.framework in Frameworks */,
 				28F6DBAB14087CEC0014923E /* Foundation.framework in Frameworks */,
 			);
@@ -48,6 +54,8 @@
 			isa = PBXGroup;
 			children = (
 				28F6DBAD14087CEC0014923E /* main.m */,
+				28E8B6C1140887220063BA3B /* IIInstantMessage.h */,
+				28E8B6C2140887220063BA3B /* IIInstantMessage.m */,
 				28F6DBA914087CEC0014923E /* Frameworks */,
 				28F6DBA714087CEC0014923E /* Products */,
 			);
@@ -66,6 +74,7 @@
 			children = (
 				28F6DBB814087D480014923E /* AppKit.framework */,
 				28F6DBAA14087CEC0014923E /* Foundation.framework */,
+				28E8B6C51408A4880063BA3B /* AddressBook.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -122,6 +131,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28F6DBAE14087CEC0014923E /* main.m in Sources */,
+				28E8B6C3140887220063BA3B /* IIInstantMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +218,7 @@
 				28F6DBB714087CEC0014923E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
