@@ -1,0 +1,215 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		28F6DBAB14087CEC0014923E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28F6DBAA14087CEC0014923E /* Foundation.framework */; };
+		28F6DBAE14087CEC0014923E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F6DBAD14087CEC0014923E /* main.m */; };
+		28F6DBBA14087D560014923E /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28F6DBB814087D480014923E /* AppKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		28F6DBA414087CEC0014923E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		28F6DBA614087CEC0014923E /* iChat Image Indexer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "iChat Image Indexer"; sourceTree = BUILT_PRODUCTS_DIR; };
+		28F6DBAA14087CEC0014923E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		28F6DBAD14087CEC0014923E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		28F6DBB814087D480014923E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		28F6DBA314087CEC0014923E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28F6DBBA14087D560014923E /* AppKit.framework in Frameworks */,
+				28F6DBAB14087CEC0014923E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		28F6DB9B14087CEB0014923E = {
+			isa = PBXGroup;
+			children = (
+				28F6DBAD14087CEC0014923E /* main.m */,
+				28F6DBA914087CEC0014923E /* Frameworks */,
+				28F6DBA714087CEC0014923E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		28F6DBA714087CEC0014923E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				28F6DBA614087CEC0014923E /* iChat Image Indexer */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		28F6DBA914087CEC0014923E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28F6DBB814087D480014923E /* AppKit.framework */,
+				28F6DBAA14087CEC0014923E /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		28F6DBA514087CEC0014923E /* iChat Image Indexer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28F6DBB514087CEC0014923E /* Build configuration list for PBXNativeTarget "iChat Image Indexer" */;
+			buildPhases = (
+				28F6DBA214087CEC0014923E /* Sources */,
+				28F6DBA314087CEC0014923E /* Frameworks */,
+				28F6DBA414087CEC0014923E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "iChat Image Indexer";
+			productName = "iChat Image Indexer";
+			productReference = 28F6DBA614087CEC0014923E /* iChat Image Indexer */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		28F6DB9D14087CEB0014923E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Delicious Monster Software";
+			};
+			buildConfigurationList = 28F6DBA014087CEB0014923E /* Build configuration list for PBXProject "iChat Image Indexer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 28F6DB9B14087CEB0014923E;
+			productRefGroup = 28F6DBA714087CEC0014923E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				28F6DBA514087CEC0014923E /* iChat Image Indexer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		28F6DBA214087CEC0014923E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28F6DBAE14087CEC0014923E /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		28F6DBB314087CEC0014923E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		28F6DBB414087CEC0014923E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		28F6DBB614087CEC0014923E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		28F6DBB714087CEC0014923E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		28F6DBA014087CEB0014923E /* Build configuration list for PBXProject "iChat Image Indexer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28F6DBB314087CEC0014923E /* Debug */,
+				28F6DBB414087CEC0014923E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28F6DBB514087CEC0014923E /* Build configuration list for PBXNativeTarget "iChat Image Indexer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28F6DBB614087CEC0014923E /* Debug */,
+				28F6DBB714087CEC0014923E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 28F6DB9D14087CEB0014923E /* Project object */;
+}
