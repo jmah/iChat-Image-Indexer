@@ -40,11 +40,9 @@ int main(int argc, const char *argv[])
                     id rootObject = [NSKeyedUnarchiver unarchiveObjectWithData:mappedData];
                     if ([rootObject isKindOfClass:[NSArray class]]) {
                         NSArray *rootArray = rootObject;
-                        if (rootArray.count > 2) {
-                            id maybeMessages = [rootArray objectAtIndex:2];
-                            if ([maybeMessages isKindOfClass:[NSArray class]] && [[maybeMessages lastObject] isKindOfClass:[IIInstantMessage class]])
-                                instantMessages = maybeMessages;
-                        }
+                        id maybeMessages = (rootArray.count > 2) ? [rootArray objectAtIndex:2] : nil;
+                        if ([maybeMessages isKindOfClass:[NSArray class]] && [[maybeMessages lastObject] isKindOfClass:[IIInstantMessage class]])
+                            instantMessages = maybeMessages;
                     }
                 }
                 @catch (...) {}
