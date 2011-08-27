@@ -1,5 +1,5 @@
 //
-//  IIInstantMessage.h
+//  IIChat.h
 //  iChat Image Indexer
 //
 //  Created by Jonathon Mah on 2011-08-26.
@@ -11,9 +11,16 @@
 @class IIParticipant;
 
 
-@interface IIInstantMessage : NSObject <NSCoding /* Decoding only */>
+@interface IIChat : NSObject
 
-+ (void)registerInGlobalKeyedUnarchiver;
+- (id)initWithData:(NSData *)chatData;
+@property (readonly, copy) NSArray *participants;
+@property (readonly, copy) NSArray *instantMessages;
+
+@end
+
+
+@interface IIInstantMessage : NSObject <NSCoding /* Decoding only */>
 
 @property (readonly, retain) IIParticipant *participant;
 @property (readonly, copy) NSDate *date;

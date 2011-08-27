@@ -7,7 +7,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "IIInstantMessage.h"
+#import "IIChat.h"
 
 
 int main(int argc, const char *argv[])
@@ -23,7 +23,6 @@ int main(int argc, const char *argv[])
             [chatFiles addObject:argString];
         }
         
-        [IIInstantMessage registerInGlobalKeyedUnarchiver];
         NSSet *const imageTypesSet = [NSSet setWithArray:[NSImage imageFileTypes]];
         
         for (NSString *path in chatFiles) {
@@ -35,24 +34,14 @@ int main(int argc, const char *argv[])
                     continue;
                 }
                 
-                NSArray *instantMessages = nil;
-                @try {
-                    id rootObject = [NSKeyedUnarchiver unarchiveObjectWithData:mappedData];
-                    if ([rootObject isKindOfClass:[NSArray class]]) {
-                        NSArray *rootArray = rootObject;
-                        id maybeMessages = (rootArray.count > 2) ? [rootArray objectAtIndex:2] : nil;
-                        if ([maybeMessages isKindOfClass:[NSArray class]] && [[maybeMessages lastObject] isKindOfClass:[IIInstantMessage class]])
-                            instantMessages = maybeMessages;
-                    }
-                }
-                @catch (...) {}
-                
-                if (!instantMessages) {
-                    fputs([[NSString stringWithFormat:@"Unable to parse messages from %@: %@\n", path, readError] UTF8String], stderr);
+                IIChat *chat = [[IIChat alloc] initWithData:mappedData];
+                if (!chat) {
+                    fputs([[NSString stringWithFormat:@"Unable to parse messages from %@\n", path] UTF8String], stderr);
                     continue;
                 }
                 
-                for (IIInstantMessage *instantMessage in instantMessages) {
+                NSLog(@"In chat with: %@", [chat.participants valueForKey:@"accountName"]);
+                for (IIInstantMessage *instantMessage in chat.instantMessages) {
                     if (![instantMessage.message containsAttachments])
                         continue;
                     
