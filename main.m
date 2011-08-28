@@ -15,12 +15,25 @@ int main(int argc, const char *argv[])
 {
     @autoreleasepool {
         NSFileManager *fm = [NSFileManager defaultManager];
-        NSMutableArray *args = [NSMutableArray new];
+        
+        BOOL remainingArgsArePaths = NO;
+        NSMutableArray *optionArgs = [NSMutableArray new];
+        NSMutableArray *pathArgs = [NSMutableArray new];
         
         for (NSUInteger i = 1; i < argc; i++) {
             NSString *argString = [NSString stringWithCString:argv[i] encoding:NSUTF8StringEncoding];
-            [args addObject:argString];
+            
+            if (remainingArgsArePaths || ![argString hasPrefix:@"-"])
+                [pathArgs addObject:argString];
+            else if ([argString isEqual:@"--"])
+                remainingArgsArePaths = YES;
+            else
+                [optionArgs addObject:argString];
         }
+        
+        // Parse options
+        BOOL rewriteExistingChats = [optionArgs containsObject:@"-f"];
+        
         
         NSSet *const imageTypesSet = [NSSet setWithArray:[NSImage imageFileTypes]];
         NSURL *const baseDirectoryForEachChat = ({
@@ -53,6 +66,9 @@ int main(int argc, const char *argv[])
                 return;
             
             NSURL *imageDirectoryForThisChat = [baseDirectoryForEachChat URLByAppendingPathComponent:path.lastPathComponent.stringByDeletingPathExtension];
+            if (!rewriteExistingChats && [fm fileExistsAtPath:imageDirectoryForThisChat.path])
+                return;
+            
             __autoreleasing NSError *directoryError;
             if (![fm createDirectoryAtURL:imageDirectoryForThisChat withIntermediateDirectories:YES attributes:nil error:&directoryError]) {
                 fputs([[NSString stringWithFormat:@"Unable to create directory for chat images at %@: %@", imageDirectoryForThisChat.path, directoryError] UTF8String], stderr);
@@ -136,7 +152,7 @@ int main(int argc, const char *argv[])
         
         
         // ---- Main driver loop ----
-        for (NSString *path in args)
+        for (NSString *path in pathArgs)
             writeImageFilesForChatOrDirectory(path);
     }
     return 0;
