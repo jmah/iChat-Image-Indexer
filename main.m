@@ -135,9 +135,10 @@ int main(int argc, const char *argv[])
             BOOL directory;
             if ([fm fileExistsAtPath:fileOrDirPath isDirectory:&directory]) {
                 if (!directory) {
-                    @autoreleasepool {
-                        writeImageFilesForChatPath(fileOrDirPath);
-                    }
+                    if ([fileOrDirPath.pathExtension isEqual:@"ichat"])
+                        @autoreleasepool {
+                            writeImageFilesForChatPath(fileOrDirPath);
+                        }
                 } else {
                     __autoreleasing NSError *enumerateError;
                     NSArray *dirContents = [fm contentsOfDirectoryAtPath:fileOrDirPath error:&enumerateError];
