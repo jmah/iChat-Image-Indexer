@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.jonathonmah.iChatImageIndexer</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/Users/jonathon/bin/iChat Image Indexer</string>
+		<string>/Users/jonathon/Documents/iChats</string>
+	</array>
+	<key>StartInterval</key>
+	<integer>600</integer>
+</dict>
+</plist>
