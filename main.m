@@ -44,8 +44,15 @@ int main(int argc, const char *argv[])
             }
             [[cachesURL URLByAppendingPathComponent:@"Metadata"] URLByAppendingPathComponent:@"iChat Image Indexer"];
         });
+        NSURL *const indexedChatsPath = [baseDirectoryForEachChat URLByAppendingPathComponent:@"Indexed Chats.noindex.plist"];
+        NSArray *indexedChatFilenamesBeforeRun = [NSArray arrayWithContentsOfURL:indexedChatsPath] ? : [NSArray array];
+        NSMutableSet *indexedChatFilenames = [NSMutableSet setWithArray:indexedChatFilenamesBeforeRun];
         
         void (^writeImageFilesForChatPath)() = ^(NSString *path) {
+            if (!rewriteExistingChats && [indexedChatFilenames containsObject:path])
+                return;
+            [indexedChatFilenames addObject:path];
+            
             __autoreleasing NSError *readError;
             NSData *mappedData = [NSData dataWithContentsOfFile:path options:NSMappedRead error:&readError];
             if (!mappedData) {
@@ -66,9 +73,6 @@ int main(int argc, const char *argv[])
                 return;
             
             NSURL *imageDirectoryForThisChat = [baseDirectoryForEachChat URLByAppendingPathComponent:path.lastPathComponent.stringByDeletingPathExtension];
-            if (!rewriteExistingChats && [fm fileExistsAtPath:imageDirectoryForThisChat.path])
-                return;
-            
             __autoreleasing NSError *directoryError;
             if (![fm createDirectoryAtURL:imageDirectoryForThisChat withIntermediateDirectories:YES attributes:nil error:&directoryError]) {
                 fputs([[NSString stringWithFormat:@"Unable to create directory for chat images at %@: %@", imageDirectoryForThisChat.path, directoryError] UTF8String], stderr);
@@ -157,6 +161,9 @@ int main(int argc, const char *argv[])
         // ---- Main driver loop ----
         for (NSString *path in pathArgs)
             writeImageFilesForChatOrDirectory(path);
+        
+        if (indexedChatFilenames.count > indexedChatFilenamesBeforeRun.count)
+            [indexedChatFilenames.allObjects writeToURL:indexedChatsPath atomically:YES];
     }
     return 0;
 }
