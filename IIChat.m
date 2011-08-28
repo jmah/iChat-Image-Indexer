@@ -10,6 +10,7 @@
 
 @implementation IIChat
 
+@synthesize serviceName = _serviceName;
 @synthesize participants = _participants;
 @synthesize instantMessages = _instantMessages;
 
@@ -32,6 +33,7 @@
             return nil;
         
         NSArray *rootArray = rootObject;
+        _serviceName = [rootArray objectAtIndex:0];
         _instantMessages = [rootArray objectAtIndex:2];
         if (_instantMessages.count && ![_instantMessages.lastObject isKindOfClass:[IIInstantMessage class]])
             return nil;
@@ -76,6 +78,7 @@
 
 @synthesize accountName = _accountName;
 @synthesize matchingPerson = _lazyPerson;
+@synthesize matchingPersonName = _lazyPersonName;
 
 - (id)initWithCoder:(NSCoder *)decoder;
 {
@@ -99,6 +102,17 @@
             _lazyPerson = (id)[NSNull null];
     }
     return ((id)_lazyPerson != [NSNull null]) ? _lazyPerson : nil;
+}
+
+- (NSString *)matchingPersonName;
+{
+    if (!_lazyPersonName) {
+        NSString *first = [self.matchingPerson valueForProperty:kABFirstNameProperty];
+        NSString *last = [self.matchingPerson valueForProperty:kABLastNameProperty];
+        NSString *bestName = (first && last) ? [NSString stringWithFormat:@"%@ %@", first, last] : (first ? : last);
+        _lazyPersonName = bestName ? : (id)[NSNull null];
+    }
+    return ((id)_lazyPersonName != [NSNull null]) ? _lazyPersonName : nil;
 }
 
 @end

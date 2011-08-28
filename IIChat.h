@@ -14,6 +14,7 @@
 @interface IIChat : NSObject
 
 - (id)initWithData:(NSData *)chatData;
+@property (readonly, copy) NSString *serviceName;
 @property (readonly, copy) NSArray *participants;
 @property (readonly, copy) NSArray *instantMessages;
 
@@ -33,5 +34,6 @@
 
 @property (readonly, copy) NSString *accountName;
 @property (readonly, retain) ABPerson *matchingPerson;
+@property (readonly, copy) NSString *matchingPersonName;
 
 @end

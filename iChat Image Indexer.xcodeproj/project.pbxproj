@@ -27,7 +27,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		28E8B6C1140887220063BA3B /* IIChat.h */ = {isa = PBXFileReference; fileEncoding = 4; path = IIChat.h; sourceTree = "<group>"; };
+		28E8B6C1140887220063BA3B /* IIChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IIChat.h; sourceTree = "<group>"; };
 		28E8B6C2140887220063BA3B /* IIChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IIChat.m; sourceTree = "<group>"; };
 		28E8B6C51408A4880063BA3B /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		28F6DBA614087CEC0014923E /* iChat Image Indexer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "iChat Image Indexer"; sourceTree = BUILT_PRODUCTS_DIR; };
