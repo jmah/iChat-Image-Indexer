@@ -76,7 +76,7 @@ int main(int argc, const char *argv[])
             }
             
             // Copy metadata from chat
-            NSArray *metadataKeys = [NSArray arrayWithObjects:(__bridge id)kMDItemDeliveryType, kMDItemInstantMessageAddresses, kMDItemDescription, nil];
+            NSArray *metadataKeys = [NSArray arrayWithObjects:(__bridge id)kMDItemDeliveryType, kMDItemInstantMessageAddresses, kMDItemDescription, kMDItemContentCreationDate, nil];
             MDItemRef mdItem = MDItemCreate(NULL, (__bridge CFStringRef)path);
             NSDictionary *baseChatMetadata = (__bridge_transfer id)MDItemCopyAttributes(mdItem, (__bridge CFArrayRef)metadataKeys);
             CFRelease(mdItem);
@@ -111,7 +111,8 @@ int main(int argc, const char *argv[])
                     [imageMetadata setObject:[NSArray arrayWithObject:im.participant.accountName] forKey:(__bridge id)kMDItemAuthorAddresses];
                     if (im.participant.matchingPersonName)
                         [imageMetadata setObject:[NSArray arrayWithObject:im.participant.matchingPersonName] forKey:(__bridge id)kMDItemAuthors];
-                    [imageMetadata setObject:im.date forKey:(__bridge id)kMDItemContentCreationDate];
+                    if (im.date)
+                        [imageMetadata setObject:im.date forKey:(__bridge id)kMDItemContentCreationDate];
                     [imageMetadata setObject:fileWrapper.preferredFilename forKey:(__bridge id)kMDItemDisplayName];
                     
                     const char *imageFSPath = imageURL.path.fileSystemRepresentation;
