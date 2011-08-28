@@ -18,6 +18,7 @@
 {
     if (self != [IIChat class])
         return;
+    [NSKeyedUnarchiver setClass:[IIInstantMessage class] forClassName:@"GroupchatMessage"];
     [NSKeyedUnarchiver setClass:[IIInstantMessage class] forClassName:@"InstantMessage"];
     [NSKeyedUnarchiver setClass:[IIParticipant class] forClassName:@"Presentity"];
 }
@@ -40,6 +41,10 @@
         _participants = [rootArray objectAtIndex:3];
         if (_participants.count && ![_participants.lastObject isKindOfClass:[IIParticipant class]])
             return nil;
+    }
+    @catch (NSException *ex) {
+        NSLog(@"Exception parsing chat data: %@", ex);
+        return nil;
     }
     @catch (...) {
         return nil;
